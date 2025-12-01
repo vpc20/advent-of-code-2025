@@ -14,15 +14,14 @@ if __name__ == '__main__':
         rotation_count = int(e[1:].strip())
 
         if direction == 'L':
-            if position != 0 and position - rotation_count <= 0:
+            if position == 0:
+                pin += (position + rotation_count) // 100
+            elif position - rotation_count <= 0:
                 pin += 1
-            if rotation_count > 100:
-                pin += rotation_count // 100 - 1
+                pin += (rotation_count - position) // 100
             position = (position - rotation_count) % 100
         else:
             pin += (position + rotation_count) // 100
             position = (position + rotation_count) % 100
-        # if position == 0:
-        #     pin += 1
 
     print(pin)

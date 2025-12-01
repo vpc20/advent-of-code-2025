@@ -15,7 +15,7 @@ if __name__ == '__main__':
 
         if direction == 'L':
             if position == 0:
-                pin += (position + rotation_count) // 100
+                pin += rotation_count // 100
             elif position - rotation_count <= 0:
                 pin += 1
                 pin += (rotation_count - position) // 100

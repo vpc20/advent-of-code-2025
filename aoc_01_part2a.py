@@ -16,8 +16,12 @@ if __name__ == '__main__':
         if direction == 'L':
             q, r = divmod(rotation_count, 100)  # q is number of rotations
             pin += q
-            if r >= position:
-                pin += 1
+            if position == 0:
+                if position - r >= 100:
+                    pin += 1
+            else:
+                if position - r <= 0:
+                    pin += 1
             position = (position - rotation_count) % 100
         else:
             pin += (position + rotation_count) // 100

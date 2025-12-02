@@ -1,10 +1,24 @@
+# def count_pin(position, rotation_count):  # rotation direction is left
+#     pin = 0
+#     if position == 0:
+#         pin = (position + rotation_count) // 100  # correct if position = 0
+#     elif position - rotation_count <= 0:
+#         pin = 1
+#         pin += (rotation_count - position) // 100
+#
+#     return pin
+
 def count_pin(position, rotation_count):  # rotation direction is left
     pin = 0
+
+    q, r = divmod(rotation_count, 100)  # q is number of rotations
+    pin += q
     if position == 0:
-        pin = (position + rotation_count) // 100  # correct if position = 0
-    elif position - rotation_count <= 0:
-        pin = 1
-        pin += (rotation_count - position) // 100
+        if position - r >= 100:
+            pin += 1
+    else:
+        if position - r <= 0:
+            pin += 1
 
     return pin
 

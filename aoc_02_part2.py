@@ -5,17 +5,11 @@ def is_repeating(s, slen):
     if len(s) % slen != 0:  # last string is shorter
         return False
 
-    first_str = ''
+    first_str = s[:slen]
     for i in range(0, len(s), slen):
-        # print(i, i + slen)
-        # print(s[i:i + slen])
-        if i == 0:
-            first_str = s[i:i + slen]
-        else:
-            if first_str != s[i:i + slen]:  # compare with subsequent strings
-                return False
+        if first_str != s[i:i + slen]:  # compare with subsequent strings
+            return False
     return True
-
 
 if __name__ == '__main__':
     # f = open('aoc_02_testdata_01.txt')

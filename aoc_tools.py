@@ -28,12 +28,38 @@ def read_input_to_list_of_grids(in_file):
     return grids
 
 
-def read_input_to_nums(in_file):
+def read_input_to_nums(in_file):  # use this if there are characters in the input which need to be filtered out
     f = open(in_file)
     nums = [re.findall(r'\d+', line) for line in f]
-    result = [[int(n) for n in num] for num in nums]
+    result = [[int(n) for n in num] for num in nums]  # covert to numbers
     f.close()
     return result
+
+def read_input_to_nums_neg(in_file):  # use this if there are characters in the input which need to be filtered out
+    f = open(in_file)
+    nums = [re.findall(r'-*\d+', line) for line in f]  # include negative numbers
+    result = [[int(n) for n in num] for num in nums]  # covert to numbers
+    f.close()
+    return result
+
+
+def read_input_to_nums1(in_file):  # use this if all the inputs are numbers only
+    f = open(in_file)
+    result = [[int(num) for num in line.strip().split()] for line in f]
+    f.close()
+    return result
+
+def read_input_to_nums2(in_file):  # use this if all the inputs are one column of numbers only
+    f = open(in_file)
+    result = [int(line.strip()) for line in f]
+    f.close()
+    return result
+
+def read_input_to_sections(in_file):
+    f = open(in_file)
+    sections = f.read().strip().split('\n\n')
+    f.close()
+    return sections
 
 
 def print_grid(arr):

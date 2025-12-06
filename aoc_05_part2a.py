@@ -19,25 +19,20 @@ if __name__ == '__main__':
 
     prev_start, prev_end = id_ranges[1]
     count_fresh_ids = prev_end - prev_start + 1
+    print(prev_start, prev_end)
     print('count_fresh_ids', count_fresh_ids)
 
     for start, end in id_ranges[1:]:
         print(start, end)
-        if end <= prev_end:
-            continue  # whole range already counted
-        if start > prev_end:
-            count_fresh_ids += end - start + 1
-            prev_start = start
-        elif start < prev_end:
-            count_fresh_ids += end - prev_end
-            prev_start = prev_end
-        else:
-            count_fresh_ids += end - start
-            prev_start = start + 1
-        prev_end = end
+        if end <= prev_end:  # whole range already counted
+            continue
+        if start <= prev_end:  # overlapping ranges
+            start = prev_end + 1
 
+        count_fresh_ids += end - start + 1
+        prev_start = start
+        prev_end = end
         print('count_fresh_ids', count_fresh_ids)
 
     print(count_fresh_ids)
     # 344423158480189 correct
-

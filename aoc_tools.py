@@ -16,6 +16,13 @@ def read_input_to_text_array(in_file):
     return result
 
 
+def read_input_to_text_array_strip_n(in_file):
+    f = open(in_file)
+    result = [line.strip('\n') for line in f]
+    f.close()
+    return result
+
+
 def read_input_to_list_of_grids(in_file):
     f = open(in_file)
     blocks = f.read().strip().split('\n\n')
@@ -35,6 +42,7 @@ def read_input_to_nums(in_file):  # use this if there are characters in the inpu
     f.close()
     return result
 
+
 def read_input_to_nums_neg(in_file):  # use this if there are characters in the input which need to be filtered out
     f = open(in_file)
     nums = [re.findall(r'-*\d+', line) for line in f]  # include negative numbers
@@ -49,11 +57,13 @@ def read_input_to_nums1(in_file):  # use this if all the inputs are numbers only
     f.close()
     return result
 
+
 def read_input_to_nums2(in_file):  # use this if all the inputs are one column of numbers only
     f = open(in_file)
     result = [int(line.strip()) for line in f]
     f.close()
     return result
+
 
 def read_input_to_sections(in_file):
     f = open(in_file)

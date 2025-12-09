@@ -14,7 +14,7 @@ if __name__ == '__main__':
             q.append((0, i))
             break
     print(q)
-    grid[0][i] = '.'  # change to space for processing below
+    grid[0][i] = '.'  # change 'S' to space for processing below
 
     seen = set()
     split_set = set()
@@ -22,16 +22,14 @@ if __name__ == '__main__':
         r, c = q.popleft()
         if (r, c) in seen:
             continue
-        else:
-            seen.add((r, c))
-
+        seen.add((r, c))
 
         while r < len(grid) and grid[r][c] == '.':
             r += 1
 
         if r < len(grid):
             assert grid[r][c] == '^'
-            split_set.add((r,c))
+            split_set.add((r, c))
             q.extend([(r, c - 1), (r, c + 1)])
 
     print(q)

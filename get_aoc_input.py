@@ -1,7 +1,7 @@
 import requests
 
 # Paste your copied session cookie value here
-SESSION_ID = "53616c7465645f5fc77d1a4cc725ba225838170f9e4002a01ce9236b7907ee0ce133815136c542d5a3e96901d69b222dcffb698afc6379f67e37d79ba0503f12"
+SESSION_ID = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 
 # change the url to get the input for each day
 url = "https://adventofcode.com/2019/day/3/input"
